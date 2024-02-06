@@ -1,0 +1,66 @@
+
+@model samadApp.Models.DataTransportObject.SellDto
+@{
+    ViewData["Title"] = "Sell";
+}
+
+
+
+<div>
+    <div class="login">
+    
+   
+<div class="container" style="direction:rtl; text-align:right;">
+    <h2>فروش بارکد سلف </h2>
+     @if(TempData["errorQrcode"] != null){
+        <div class="alert alert-danger">
+            <p>@TempData["errorQrcode"]</p>
+        </div>
+    }
+    @if(TempData["errorPicture"] != null){
+        <div class="alert alert-danger">
+            <p>@TempData["errorPicture"]</p>
+        </div>
+    }
+    <div class="form responsive-form">
+        <form asp-controller="Home" asp-action="Sell" method="post" enctype="multipart/form-data">
+            <label for="College" class="form-label">دانشکده خود را انتخاب کنید</label>
+            <select class="form-select" asp-for="College" id="College">
+                <option value="shamsi">شمسی پور</option>
+                <option value="engelab">انقلاب</option>
+                <option value="shariati">شریعتی</option>
+                <option value="n1tabriz">شماره یک تبریز</option>
+                <option value="n2tabriz">شماره دو تبریز"</option>
+            </select>
+            
+            <label for="FoodName" class="form-label">غذا را انتخاب کنید</label>
+            <select class="form-select" asp-for="FoodName" id="FoodName">
+                <option value="قیمه">قیمه</option>
+                <option value="جوجه">جوجه</option>
+                <option value="تن ماهی">تن ماهی</option>
+                <option value="آش رشته">آش رشته</option>
+                <option value="لوبیا پلو">لوبیا پلو</option>
+            </select>
+            
+        
+
+        
+            <div class="input-box">
+                <label for="date" class="form-label">کد برای چه روزی است</label>
+                <input type="date" id="date" asp-for="Date">
+            </div>
+
+            <div class="input-box">
+                <label for="file" class="form-label">تصویر بارکد</label>
+                <input name="ImageQrCode" type="file">
+            </div>
+
+            <button type="submit" class="btn btn-outline-success"> ثبت </button>
+
+        
+        </form>
+    </div>
+</div>
+
+</div>
+</div>

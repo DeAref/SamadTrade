@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "MSSQL",
+            "name": "aref",
+            "connectString": "Data Source=212.33.197.94;Database=perfectu_aref;Integrated Security=false;User ID=perfectu_aref;TrustServerCertificate=True;Password=m9i3%f0Z"
+        }
+    ]
+}

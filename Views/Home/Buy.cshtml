@@ -1,0 +1,59 @@
+@model samadApp.Models.DataTransportObject.BuyDto
+@{
+    ViewData["Title"] = "خرید بارکد سلف";
+}
+
+
+@{
+    // دریافت تاریخ و ساعت کامپیوتر
+    var currentDate = DateTime.Now;
+}
+
+<div class="container" style="direction:rtl; text-align:right;">
+    <h2>@ViewData["Title"]</h2>
+
+    @if(TempData["test"] != null){
+        <div class="alert alert-danger">
+            <p>@TempData["test"]</p>
+        </div>
+    }
+    @if(ViewBag.FoodsForSell != null)
+    {
+    
+    string foodDate = ViewBag.FoodDate;
+        <h3>غذای مورد نظر را انتخاب کنید</h3>
+        <form asp-action="Pay" asp-controller="Home" method="post">
+            @foreach (var item in ViewBag.FoodsForSell)
+            {
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="@item.FoodName"  asp-for="NameOfFood" value="@item.FoodName">
+                    <input type="text" asp-for="DateOfFood" value="@foodDate" hidden>
+                    <label class="form-check-label" for="@item.FoodName">@item.FoodName</label><br>
+                </div>
+            }
+            <input type="submit" class="btn btn-outline-success" value="خرید">
+        </form>
+            
+        
+    }
+    <h3>روزی که میخواهید کد آن را تهییه کنید انتخاب کنید</h3>
+    <table class="table table-hover">
+        <tr>
+            <th>روز</th>
+            <th>تاریخ</th>
+        </tr>
+      
+         @for (var i = 0; i < 14; i++)
+        {
+            <tr>
+                @{
+                    string date = currentDate.AddDays(i).ToString("yyyy/MM/dd");
+                }
+                    <td><a asp-controller="Home" asp-action="Buy" asp-route-day="@date">@currentDate.AddDays(i).ToString("dddd")</a></td>
+                    <td>@currentDate.AddDays(i).ToString("yyyy/MM/dd")</td>
+                
+            </tr>
+        }
+    </table>
+</div>
+   

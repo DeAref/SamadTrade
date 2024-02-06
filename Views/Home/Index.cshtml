@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    
+        @* <div class="card bg-dark text-white">
+        <img class="card-img " src="~/images/banner-bg-two.png" alt="Card image">
+        <div class="card-img-overlay">
+            <h5 class="card-title">سامانه خرید و فروش سلف</h5>
+            <p class="card-text">اگه نتونستی این هفته رو رزرو کنی رو ما حساب باز کن</p>
+            <p class="card-text">با قیمت مصوب</p>
+        </div>
+        </div> *@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="~/images/banner-bg-two.png" style="height: 500px;" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+            <h5>سامانه خرید و فروش سلف</h5>
+            <p>اگه نتونستی این هفته رو رزرو کنی رو ما حساب باز کن</p>
+        </div>
+    </div>
+    
+   
+  </div>
+  
+</div>
+
+<div class="container m-5">
+       <div class="row" style="justify-content: center;">
+            <div class="card col-sm-6 m-5" style="width: 18rem; direction: rtl;">
+            <img class="card-img-top" src="~/images/Buy.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">خرید کد سلف</h5>
+                <p class="card-text">خرید کد سلف به صورت مستقیم و سریع</p>
+                <a asp-action="Buy" asp-controller="Home" class="btn btn-primary">رفتن به صفحه خرید</a>
+            </div>
+            </div>
+
+            <div class="card col-sm-6 m-5" style="width: 18rem; direction: rtl;">
+            <img class="card-img-top" src="~/images/Sell.svg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">فروش کد سلف</h5>
+                <p class="card-text">کد سلف شما با بهترین قیمت و سریعترین زمان بدون دغدغه به فروش میرسد</p>
+                <a asp-action="Sell" asp-controller="Home" class="btn btn-primary">رفتن به صفحه فروش</a>
+            </div>
+            </div>
+        </div>
+</div>
+           @* <a asp-action="Buy" asp-controller="Home"> <button type="button"  class="btn btn-primary btn-lg">خرید</button></a>
+           <a asp-action="Sell" asp-controller="Home"> <button type="button"  class="btn btn-secondary btn-lg">فروش</button></a>
+         *@
+   

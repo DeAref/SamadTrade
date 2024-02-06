@@ -1,0 +1,60 @@
+
+@model samadApp.Models.DataTransportObject.Register
+@{
+    ViewData["Title"] = "Register";
+}
+@{
+    Layout = "_LayoutAccount";
+}
+<div class="login">
+
+    <h1>ثبت نام</h1>
+    @if(TempData["MessageRegister"] != null){
+        <div class="alert alert-danger">
+            <p>@TempData["MessageRegister"]</p>
+        </div>
+    }
+
+     <form asp-controller="Accounting" asp-action="RegisterAction" method="post">
+        <div class="input-box">
+            <input type="text" asp-for="Fname" placeholder="نام">
+            <i class="fa fa-envelope"></i>
+        </div>
+        <div class="input-box">
+            <input type="text" asp-for="Lname" placeholder="نام خانوادگی">
+            <i class="fa fa-envelope"></i>
+        </div>
+        <div class="input-box">
+            <input type="email" asp-for="Email" placeholder="ایمیل">
+            <i class="fa fa-envelope"></i>
+        </div>
+        <div class="input-box">
+            <select class="form-select" asp-for="College" id="College">
+                <option value="shamsi">شمسی پور</option>
+                <option value="engelab">انقلاب</option>
+                <option value="shariati">شریعتی</option>
+                <option value="n1tabriz">شماره یک تبریز</option>
+                <option value="n2tabriz">شماره دو تبریز"</option>
+            </select>
+        </div>
+        <div class="input-box">
+            <input type="password" asp-for="Password" placeholder="رمز عبور">
+            <i class="fa fa-lock"></i>
+        </div>
+        <div class="input-box">
+            <input type="password" asp-for="ConfirmPassword" placeholder="تکرار رمز عبور">
+            <i class="fa fa-lock"></i>
+        </div>
+
+
+        <button type="submit">ثبت نام</button>
+
+        <div class="links">
+
+            <a asp-action="Login" asp-controller="Accounting"> قبلا ثبت نام کرده ام (ورود)</a>
+        </div>
+
+    </form>
+
+</div><!-- End Login -->
+
