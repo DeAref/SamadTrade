@@ -1,0 +1,94 @@
+@* 
+@model samadApp.Models.DataTransportObject.LoginDto
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <div class="login">
+
+    <h1>login</h1>
+    @if(TempData["MessageLogin"] != null){
+        <div class="alert alert-danger">
+            <p>@TempData["MessageLogin"]</p>
+        </div>
+    }
+    <div class="form responsive-form">
+    <form asp-controller="Accounting" asp-action="Login" method="post">
+       
+        <div class="input-box">
+            <input type="email" asp-for="UserName" placeholder="ایمیل">
+            <i class="fa fa-envelope"></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" asp-for="Password" placeholder="رمز عبور">
+            <i class="fa fa-lock"></i>
+        </div>
+         <div class="input-box">
+           <input type="checkbox" asp-for="RememmberMe">
+            <label for="vehicle1">مرا به خاطر بسپار</label><br>
+        </div>
+       
+
+
+
+        <button type="submit">login</button>
+
+        <div class="links">
+
+            <a href="#"> قبلا ثبت نام کرده ام (ورود)</a>
+        </div>
+
+    </form>
+</div>
+
+</div>
+</div> *@
+@model samadApp.Models.DataTransportObject.LoginDto
+ 
+@{
+    Layout = "_LayoutAccount";
+} 
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+<div class="login">
+
+    <h1>صفحه ورود</h1>
+    @if(TempData["MessageLogin"] != null){
+        <div class="alert alert-danger">
+            <p>@TempData["MessageLogin"]</p>
+        </div>
+    }
+    <form asp-controller="Accounting" asp-action="Login" method="post">
+        <div class="input-box">
+            <input type="text" id="email" asp-for="UserName" placeholder="ایمیل">
+            <i class="fa fa-envelope"></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" id="password" asp-for="Password" placeholder="رمز عبور">
+            <i class="fa fa-lock"></i>
+        </div>
+
+        <div class="rembar">
+            <input id="rembar" id="rembar" asp-for="RememmberMe" name="rembar" type="checkbox">
+            <label for="rembar">منو یادت باشه</label>
+        </div>
+
+        <button type="submit">ورود</button>
+
+        <div class="links">
+            <a href="#">پسورد یادم نیس </a>
+            <a asp-action="RegisterAction" asp-controller="Accounting">اکانت ندارم</a>
+        </div>
+
+    </form>
+
+</div><!-- End Login -->  

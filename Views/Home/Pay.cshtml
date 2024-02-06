@@ -1,0 +1,40 @@
+@model samadApp.Models.DataTransportObject.BuyDto
+@{
+    ViewData["Title"] = "پرداخت";
+}
+<div class="container" style="direction: rtl; text-align: right;">
+<h1>@ViewData["Title"]</h1>
+@if(TempData["buyResult"] != null){
+        <div class="alert alert-success">
+            <p>@TempData["buyResult"]</p>
+        </div>
+    }
+    
+@if(@ViewBag.QrCode != null)
+{
+    <div class="card" style="width: 18rem;">
+    <canvas class="card-img-top" id="qrcode"></canvas>
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.QrCode</h5>
+        <p class="card-text">خرید شما با موفقیت انجام شد. بارکد را ذخیره کنید و در هنگام ورود به سلف به دستگاه نشان دهید</p>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary">برگشت به خانه</a>
+    </div>
+    </div>
+}
+
+  <script src="~/lib/qrious/dist/qrious.js"></script>
+  <script>
+    var qr = new QRious({
+    element: document.getElementById('qrcode'),
+    value: '@ViewBag.QrCode',
+    background: 'white', // background color
+    foreground: 'black', // foreground color
+    backgroundAlpha: 1,
+    foregroundAlpha: 1,
+    level: 'L', // Error correction level of the QR code (L, M, Q, H)
+    mime: 'image/png', // MIME type used to render the image for the QR code
+    size: 100, // Size of the QR code in pixels.
+    padding: null // padding in pixels
+});
+  </script>
+</div>
